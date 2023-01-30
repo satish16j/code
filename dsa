@@ -79,3 +79,44 @@ public:
         return result;
     }
 };
+
+
+QUESTION-5
+
+Running Sum of 1d Array
+Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+
+Return the running sum of nums.
+
+SOLUTION-1
+class Solution {
+public:
+    vector<int> runningSum(vector<int>& nums) {
+        vector<int>result;
+        int n=nums.size();
+        int sum=0;
+        for(int i=0;i<n;i++){
+            sum=sum+nums[i];
+            result.push_back(sum);
+        }
+        return result;
+    }
+};
+
+SOLUTION-2
+
+class Solution {
+public:
+    vector<int> runningSum(vector<int> &nums) {
+        // Initialize result array with first element in nums.
+        vector<int> result = {nums[0]};
+
+        for (int i = 1; i < nums.size(); i++) {
+            // Result at index `i` is sum of result at `i-1` and element at `i`.
+            result.push_back(result.back() + nums[i]);
+        }
+        return result;
+    }
+};
+
+QUESTION-6
